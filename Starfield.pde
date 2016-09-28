@@ -1,15 +1,15 @@
 //your code here
-NormalParticle[] sweg;
+Particle[] sweg;
 
 
 
 void setup()
 {
 	size(400, 400);
-	sweg = new NormalParticle[300];
+	sweg = new Particle[100];
 	for(int i = 0; i < sweg.length; i ++)
 	{
-		sweg[i] = new NormalParticle(100, 100);
+		sweg[i] = new NormalParticle();
 	}
 	//your code here
 }
@@ -17,42 +17,47 @@ void draw()
 {
 	for(int i = 0; i < sweg.length; i++)
 	{
-		sweg[i].move();
 		sweg[i].show();
+		sweg[i].move();
 	}
 	//your code here
 }
-class NormalParticle
+class NormalParticle implements Particle
 {
 	int colour;
 	double myX, myY, speed, angle;
-	NormalParticle(double x, double y)
+	NormalParticle()
 	{
-		myX = x;
-		myY = y;
+		myX = 200;
+		myY = 200;
 		speed = 10;
-		angle = 10;
+		angle = 2.5;
 	}
 	void move ()
 	{
 		myX += (Math.cos(angle)* speed) + myX;
 		myY += (Math.sin(angle)* speed) + myY;
+		angle += 50;
 	}
 	void show ()
 	{
 		fill(colour);
-		ellipse((float)myX, (float)myY, 5, 5);
+		ellipse((float)myX, (float)myY, 10, 10);
 	}
 	//your code here
 }
 interface Particle
 {
+	public void move();
+		
+	public void show();
 	//your code here
 }
-class OddballParticle //uses an interface
+/*class OddballParticle implements Particle //uses an interface
 {
 	//your code here
 }
+*/
 class JumboParticle //uses inheritance
 {
 	//your code here
