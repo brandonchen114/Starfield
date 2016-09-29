@@ -1,6 +1,5 @@
 //your code here
-Particle[] sweg;
-
+Particle[] sweg = new Particle[100];
 
 
 void setup()
@@ -15,6 +14,7 @@ void setup()
 }
 void draw()
 {
+	background(255);
 	for(int i = 0; i < sweg.length; i++)
 	{
 		sweg[i].show();
@@ -28,16 +28,16 @@ class NormalParticle implements Particle
 	double myX, myY, speed, angle;
 	NormalParticle()
 	{
-		myX = 200;
-		myY = 200;
-		speed = 10;
-		angle = 2.5;
+		myX = 200.7;
+		myY = 200.9;
+		speed = 10.4;
+		angle = (double)(Math.random()*360);
 	}
 	void move ()
 	{
-		myX += (Math.cos(angle)* speed) + myX;
-		myY += (Math.sin(angle)* speed) + myY;
-		angle += 50;
+		myX += (Math.cos(angle)* speed);
+		myY += (Math.sin(angle)* speed);
+		angle += 0.2;
 	}
 	void show ()
 	{
