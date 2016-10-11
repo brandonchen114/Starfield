@@ -1,5 +1,5 @@
 //your code here
-Particle[] sweg = new Particle[100];
+Particle[] sweg;
 
 
 void setup()
@@ -10,7 +10,7 @@ void setup()
 	{
 		sweg[i] = new NormalParticle();
 		sweg[0] = new OddballParticle();
-		sweg[1] = new JumboParticle();
+		sweg[9] = new JumboParticle();
 	}
 	//your code here
 }
@@ -92,4 +92,3 @@ class JumboParticle extends NormalParticle //uses inheritance
 	}
 	//your code here
 }
-
